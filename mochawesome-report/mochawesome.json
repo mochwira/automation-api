@@ -1,0 +1,157 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-06-15T14:16:26.603Z",
+    "end": "2025-06-15T14:16:27.945Z",
+    "duration": 1342,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fc82fc6a-a59c-477c-b09a-55f7b2fb3ef4",
+      "title": "",
+      "fullFile": "F:\\MII 2025\\ApiTest\\apiTest.js",
+      "file": "\\apiTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d147f07b-1368-497a-b7f8-d311c02c2bb5",
+          "title": "Create, Get, Update, Delete User API Test",
+          "fullFile": "F:\\MII 2025\\ApiTest\\apiTest.js",
+          "file": "\\apiTest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should create a new user",
+              "fullTitle": "Create, Get, Update, Delete User API Test should create a new user",
+              "timedOut": false,
+              "duration": 551,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const newUser = {\n    name: \"Wira Sanjayas\",\n    email: \"Wira.Sanjayas@example.com\",\n    gender: \"male\",\n    status: \"active\"\n};\ntry {\n    const response = await axios.post(`${baseURL}/users`, newUser, { headers });\n    expect(response.status).to.equal(201);\n    expect(response.data.data).to.have.property(\"id\");\n    userId = response.data.data.id;  // Store user ID for subsequent tests\n    console.log(`User created with ID: ${userId}`);\n} catch (error) {\n    console.error(\"Error creating user:\", error.response.data);\n}",
+              "err": {},
+              "uuid": "46dcbdfb-75dd-496e-b046-fb81f0aed799",
+              "parentUUID": "d147f07b-1368-497a-b7f8-d311c02c2bb5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get user details",
+              "fullTitle": "Create, Get, Update, Delete User API Test should get user details",
+              "timedOut": false,
+              "duration": 234,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "try {\n    const response = await axios.get(`${baseURL}/users/${userId}`, { headers });\n    expect(response.status).to.equal(200);\n    expect(response.data.data).to.have.property(\"id\", userId);\n    console.log(`User details: ${JSON.stringify(response.data.data)}`);\n} catch (error) {\n    console.error(\"Error getting user details:\", error.response.data);\n}",
+              "err": {},
+              "uuid": "f23eb7d9-9d2e-4c41-83d0-d18de158250d",
+              "parentUUID": "d147f07b-1368-497a-b7f8-d311c02c2bb5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should update user details",
+              "fullTitle": "Create, Get, Update, Delete User API Test should update user details",
+              "timedOut": false,
+              "duration": 341,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const updatedUser = {\n    name: \"Wira Sanjaya\",\n    email: \"wira.Sanjaya.updated@example.com\",\n    gender: \"male\",\n    status: \"inactive\"\n};\ntry {\n    const response = await axios.put(`${baseURL}/users/${userId}`, updatedUser, { headers });\n    expect(response.status).to.equal(200);\n    expect(response.data.data).to.have.property(\"name\", updatedUser.name);\n    console.log(`User updated: ${JSON.stringify(response.data.data)}`);\n} catch (error) {\n    console.error(\"Error updating user:\", error.response.data);\n}",
+              "err": {},
+              "uuid": "64ec0cd1-5261-4ec7-8e59-592750f7db81",
+              "parentUUID": "d147f07b-1368-497a-b7f8-d311c02c2bb5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should delete the user",
+              "fullTitle": "Create, Get, Update, Delete User API Test should delete the user",
+              "timedOut": false,
+              "duration": 201,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "try {\n    const response = await axios.delete(`${baseURL}/users/${userId}`, { headers });\n    expect(response.status).to.equal(204);  // No Content\n    console.log(\"User deleted successfully\");\n} catch (error) {\n    console.error(\"Error deleting user:\", error.response.data);\n}",
+              "err": {},
+              "uuid": "d4d496c2-3690-4757-a25a-921eb6c455e8",
+              "parentUUID": "d147f07b-1368-497a-b7f8-d311c02c2bb5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "46dcbdfb-75dd-496e-b046-fb81f0aed799",
+            "f23eb7d9-9d2e-4c41-83d0-d18de158250d",
+            "64ec0cd1-5261-4ec7-8e59-592750f7db81",
+            "d4d496c2-3690-4757-a25a-921eb6c455e8"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1327,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.6.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
